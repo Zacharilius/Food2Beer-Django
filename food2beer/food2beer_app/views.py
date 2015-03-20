@@ -1,6 +1,3 @@
-from django.shortcuts import HttpResponse
+from django.shortcuts import render
 
-def index(request):
-	return HttpResponse("Food2Beer_app says hello")
-
-
+# Create your views here.
