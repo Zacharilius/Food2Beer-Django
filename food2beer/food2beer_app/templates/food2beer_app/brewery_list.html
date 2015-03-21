@@ -1,13 +1,7 @@
-<html>
-	<head>
-		<title>Food2Beer</title>
-	</head>
-	<body>
-		<h1>Breweries</h1>
-		<h3>All them breweries</h3>
+{% extends "food2beer_app/includes/base.html" %}
+	{% block content %}
 		{% for brewery  in object_list %}
-			<h2>{{ brewery.name }}</h2>
-			<h3>{{ brewery.state }}</h3>
+			<h1>{{ brewery.name }}</h1>
+			<h3>{{ brewery.city }}, {{ brewery.state }}</h3>
 		{% endfor %}
-	</body>
-</html
+	{% endblock %}

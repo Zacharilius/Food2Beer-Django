@@ -1,0 +1,21 @@
+{
+  "name": "food2beer",
+  "version": "0.0.0",
+  "homepage": "https://github.com/Zacharilius/Food2Beer-Django",
+  "authors": [
+    "zacharilius <zabensley@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "food2beer_app/static/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.4",
+    "html5-boilerplate": "~5.0.0"
+  }
+}
