@@ -7,7 +7,7 @@ class Brewery(models.Model):
 	slug = models.SlugField(max_length=40, unique=True)
 
 	def get_absolute_url(self):
-		return self.slug
+		return "/brewery/%s/" % (self.slug)
 
 	def save(self, *args, **kwargs):
 		self.slug = slugify(self.name)
@@ -17,4 +17,26 @@ class Brewery(models.Model):
 		return self.name
 	
 	class Meta:
-		ordering = ["-name"]
+		ordering = ["name"]
+		verbose_name_plural = "Breweries"
+
+class Beer(models.Model):
+	name = models.CharField(max_length=200, unique=True)
+	brewery = models.ForeignKey(Brewery)
+	beerType = models.CharField(max_length=200)
+	abv = models.IntegerField()
+	ibus = models.IntegerField()
+	slug = models.SlugField(max_length=40, unique=True)
+
+	def get_absolute_url(self):
+		return self.slug
+	
+	def save(self, *args, **kwargs):
+		self.slug = slugify(self.name)
+		super(Beer, self).save(*args, **kwargs)
+	
+	def __unicode__(self):
+		return self.name
+
+	class Meta:
+		ordering = ["name"]

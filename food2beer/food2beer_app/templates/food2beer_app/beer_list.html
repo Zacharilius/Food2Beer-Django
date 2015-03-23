@@ -1,8 +1,8 @@
 {% extends "food2beer_app/includes/base.html" %}
 	{% block content %}
-		{% for brewery  in object_list %}
-			<h1><a href = "{{ brewery.get_absolute_url }}">{{ brewery.name }}</a></h1>
-			<h3>{{ brewery.city }}, {{ brewery.state }}</h3>
+		{% for beer  in object_list %}
+			<h1><a href = "{{ beer.get_absolute_url }}">{{ beer.name }}</a></h1>
+			<a href="{{ beer.brewery.get_absolute_url }}"> {{ beer.brewery.name }}</a>
 		{% endfor %}
 
 		{% if page_obj.has_previous %}
