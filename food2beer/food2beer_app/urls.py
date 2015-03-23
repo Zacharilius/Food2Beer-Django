@@ -4,7 +4,8 @@ from food2beer_app.models import Brewery
 
 urlpatterns = patterns('',
 	
-	url(r'^$', ListView.as_view(
+	url(r'^(?P<page>\d+)?/?$', ListView.as_view(
 		model=Brewery,
+		paginate_by=5,
 		)),
 )
