@@ -6,12 +6,12 @@ from food2beer_app.views import BreweryListView
 
 urlpatterns = patterns('',
 	# Beer List	
-	url(r'^(?P<page>\d+)?/?$', ListView.as_view(
+	url(r'^beer-list/(?P<page>\d+)?/?$', ListView.as_view(
 		model=Beer,
 		paginate_by=5,
 		)),
 	# Individual beer
-	url(r'^(?P<slug>[a-zA-Z0-9-]+)/?$', DetailView.as_view(
+	url(r'^beer/(?P<slug>[a-zA-Z0-9-]+)/?$', DetailView.as_view(
 		model=Beer,
 		)),
 	
