@@ -1,14 +1,14 @@
 {% extends "includes/base.html" %}
 	{% block content %}
 		{% for beer  in object_list %}
-			<h1><a href = "{{ beer.get_absolute_url }}">{{ beer.name }}</a></h1>
-			<a href="{{ beer.brewery.get_absolute_url }}"> {{ beer.brewery.name }}</a>
+			<h1><a href = "/food2beer/beer/{{ beer.get_absolute_url }}">{{ beer.name }}</a></h1>
+			<a href="/food2beer{{ beer.brewery.get_absolute_url }}"> {{ beer.brewery.name }}</a>
 		{% endfor %}
 		</br>
 		{% if page_obj.has_previous %}
-        <a href="/beer/{{ page_obj.previous_page_number }}/">Previous Page</a>
+        <a href="/food2beer/beer-list/{{ page_obj.previous_page_number }}/">Previous Page</a>
         {% endif %}
         {% if page_obj.has_next %}
-		<a href="/beer/{{ page_obj.next_page_number }}/">Next Page</a>
+		<a href="/food2beer/beer-list/{{ page_obj.next_page_number }}/">Next Page</a>
         {% endif %}
 	{% endblock %}

@@ -41,3 +41,16 @@ class Beer(models.Model):
 
 	class Meta:
 		ordering = ["name"]
+
+class Food(models.Model):
+	name = models.CharField(max_length=50)
+	beer = models.ManyToManyField(Beer)
+
+	def __unicode__(self):
+		return self.name
+
+	def save(self, *args, **kwargs):
+		super(Food, self).save(*args, **kwargs)
+
+	class Meta:
+		ordering = ["name"]

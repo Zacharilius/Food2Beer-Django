@@ -1,0 +1,14 @@
+{% extends "includes/base.html" %}
+	{% block content %}
+		{% for brewery  in object_list %}
+			<h1><a href = "/food2beer{{ brewery.get_absolute_url }}">{{ brewery.name }}</a></h1>
+
+		{% endfor %}
+		</br>
+		{% if page_obj.has_previous %}
+        <a href="/food2beer/breweries/{{ page_obj.previous_page_number }}/">Previous Page</a>
+        {% endif %}
+        {% if page_obj.has_next %}
+		<a href="/food2beer/breweries/{{ page_obj.next_page_number }}/">Next Page</a>
+        {% endif %}
+	{% endblock %}

@@ -3,6 +3,7 @@ from django.views.generic import ListView, DetailView
 
 from food2beer_app.models import Brewery, Beer
 from food2beer_app.views import BreweryListView
+from food2beer_app import views
 
 urlpatterns = patterns('',
 	# Beer List	
@@ -20,4 +21,11 @@ urlpatterns = patterns('',
 		paginate_by=5,
 		model=Brewery,
 		)),
+
+	# Breweries List
+	url(r'^breweries/(?P<page>\d+)?/?$', ListView.as_view(
+		paginate_by=5,
+		model=Brewery,
+		)),
+	url(r'^$', views.food2beer, name='food2beer'),
 )
