@@ -8,4 +8,7 @@
     		{{ form }}
     		<input type="submit" value="Get Beer"/>
 		</form>
+			{% for food in inputFoods %}
+				<p>{{ food }} </p>
+			{% endfor %}
 	{% endblock %}

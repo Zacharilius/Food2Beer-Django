@@ -232,11 +232,14 @@ class Pop():
 		self.food2beer["Cajun"] = "Bock"
 		self.food2beer["Jerk"] = "Bock"
 
-		for food in self.food2beer:
-			for beer in self.beerList:
-				if beer.beerType  == self.food2beer[food]:
-					print str(food) + " pairs with " + str(beer)
-
+		#print self.food2beer
+		for food in Food.objects.all():
+			#print  food
+			for beer in Beer.objects.all():
+				#print beer.beerType
+				#print self.food2beer[str(food)]
+				if beer.beerType  == self.food2beer[str(food)]:
+					food.beer.add(beer)
 	def __init__(self):
 		# Delete all entries in database
 		Beer.objects.all().delete()
@@ -251,5 +254,11 @@ class Pop():
 		print "Starting population script for Food2Beer..."
 
 		self.populate()
+
+		print ""
+		allPairs = Food.objects.all()
+		print allPairs[0].beer
+		print ""
+		print "Finished populating Food2Beer"
 
 Pop()
