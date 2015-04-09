@@ -1,7 +1,7 @@
 {% extends "includes/base.html" %}
 	{% block content %}
 		<div class="post">
-			<h1>{{ object.name }}</h1>
+			<h2>{{ object.name }}</h2>
 			<h3><a href = "/food2beer{{ object.brewery.get_absolute_url }}">Brewery: {{ object.brewery.name }}</a></h3>
 			<h3>Type: {{ object.beerType }}</h3>
 			<h3>ABV: {{ object.abv }}</h3>

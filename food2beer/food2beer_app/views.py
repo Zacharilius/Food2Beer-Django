@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
+from django.views.generic.detail import SingleObjectMixin
+
 from django.http import HttpResponseRedirect
 
 from food2beer_app.models import Brewery, Beer, Food
@@ -16,6 +18,19 @@ def food2beer(request):
 			context_dict["foodBeerCombo"] = foodBeerCombo
 	return render(request, 'food2beer_app/food2beer.html', context_dict)
 
+class BeerListView(ListView):
+	def get_context_data(self, **kwargs):
+		context_dict = super(BeerListView, self).get_context_data(**kwargs)
+		context_dict['nav_beerlist'] = 'active'
+		return context_dict
+
+class BeerDetailView(DetailView):
+	def get_context_data(self, **kwargs):
+		context_dict = super(BeerDetailView, self).get_context_data(**kwargs)
+		context_dict['nav_beerlist'] = 'active'
+		return context_dict
+
+
 class BreweryListView(ListView):
 	def get_queryset(self):
 		slug = self.kwargs['slug']
@@ -24,7 +39,15 @@ class BreweryListView(ListView):
 			return Beer.objects.filter(brewery=brewery)
 		except Brewery.DoesNotExist:
 			return Beer.objects.none()
-
+	def get_context_data(self, **kwargs):
+		context_dict = super(BreweryListView, self).get_context_data(**kwargs)
+		context_dict['nav_breweries'] = 'active'
+		return context_dict
+class BreweriesListView(ListView):
+	def get_context_data(self, **kwargs):
+		context_dict = super(BreweriesListView, self).get_context_data(**kwargs)
+		context_dict['nav_breweries'] = 'active'
+		return context_dict
 
 class ConvertInputToBeer():
 	def __init__(self, input):

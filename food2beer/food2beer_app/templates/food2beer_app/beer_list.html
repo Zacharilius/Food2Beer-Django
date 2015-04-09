@@ -1,8 +1,8 @@
 {% extends "includes/base.html" %}
 	{% block content %}
 		{% for beer  in object_list %}
-			<h1><a href = "/food2beer/beer/{{ beer.get_absolute_url }}">{{ beer.name }}</a></h1>
-			<a href="/food2beer{{ beer.brewery.get_absolute_url }}"> {{ beer.brewery.name }}</a>
+			<h2><a href = "/food2beer/beer/{{ beer.get_absolute_url }}">{{ beer.name }}</a></h2>
+			<a href="/food2beer{{ beer.brewery.get_absolute_url }}">Brewery: {{ beer.brewery.name }}</a>
 		{% endfor %}
 		</br>
 		</br>
