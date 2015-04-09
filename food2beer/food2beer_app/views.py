@@ -12,8 +12,8 @@ def food2beer(request):
 		recForm = FoodForm(request.POST)
 		if recForm.is_valid():
 			foodString = ConvertInputToBeer(request.POST.get("inputFood",""))
-			foodList = foodString.getBeerRecom();
-			context_dict["inputFoods"] = foodList
+			foodBeerCombo = foodString.getBeerRecom();
+			context_dict["foodBeerCombo"] = foodBeerCombo
 	return render(request, 'food2beer_app/food2beer.html', context_dict)
 
 class BreweryListView(ListView):
@@ -27,17 +27,18 @@ class BreweryListView(ListView):
 
 
 class ConvertInputToBeer():
-	output = []	
 	def __init__(self, input):
 		self.inputFoods = input.split(' ')
 
 	def getBeerRecom(self):
 		output = []
 		for food in self.inputFoods:
-			if (Food.objects.filter(name=food.title()).exists()):
-				print str(Beer.objects.get(name=food.title()))
-				output.append(food + " pairs with " + str(Food.objects.get(name=food.title())))
+			print food
+			if (Food.objects.filter(name=food).exists()):
+				matches = Food.objects.filter(name=food)[0].beer.all()
+				for match in matches:
+					output.append(food + " pairs with " + str(match.brewery) + " - " + str(match.name))
 			else:
 				output.append(food  + " isn't in the database")
-
+		print output
 		return output

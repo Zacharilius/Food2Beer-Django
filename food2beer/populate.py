@@ -7,7 +7,17 @@ django.setup()
 from food2beer_app.models import Brewery, Beer, Food
 class Pop():
 	def populate(self):
+		# Add beers and breweries
+		self.add_beerBreweries_db()
 
+		# Add 
+		self.add_foods_db()
+
+
+		self.create_food2beer()
+
+
+	def add_beerBreweries_db(self):
 		union = self.add_brewery("Union", "Baltimore", "Maryland")
 		self.add_beer("Duck Pin", union, "Pale Ale", 55, 5.5)
 		self.add_beer("Balt Alt", union, "Alt", 45, 5.6)
@@ -23,7 +33,7 @@ class Pop():
 		
 		heavySeas = self.add_brewery("Heavy Seas", "Baltimore", "Maryland")
 		self.add_beer("Cross Bones", heavySeas, 'Session IPA', 35, 4.5)
-		self.add_beer("Loose Cannon", heavySeas, 'American IPA', 45, 7.25)
+		self.add_beer("Loose Cannon", heavySeas, 'IPA', 45, 7.25)
 
 		samAdams = self.add_brewery("Samual Adams", "Boston", "Massacheussetts")
 		self.add_beer("Boston Lager", samAdams, 'Lager', 30, 4.9)
@@ -46,7 +56,7 @@ class Pop():
 		self.add_beer("Wes Coast IPA", greenFlash, 'IPA', 95, 8.1)
 
 
-		victory = self.add_brewery("Victory Brewing Company", "Downington", "Pennsyolvania")
+		victory = self.add_brewery("Victory Brewing Company", "Downington", "Pennsylvania")
 		self.add_beer("HopDevil IPA", victory, 'American IPA', 100, 6.7)
 		self.add_beer("Storm King Stout", victory, 'American Imperial Stout', 65, 9.2)
 		self.add_beer("Golden Monkey", victory, 'Belgian-Style Tripel', 25, 9.5)
@@ -59,6 +69,23 @@ class Pop():
 		dogfishHead = self.add_brewery("Dogfish Head", "Milton", "Delaware")
 		self.add_beer("60 Minute", dogfishHead, 'IPA', 60, 6.0)
 
+		guinness = self.add_brewery("Guinness", "Dublin", "Ireland")
+		self.add_beer("Extra Stout", guinness, 'Stout', 22, 6.0)
+
+		newcastle = self.add_brewery("Newcastle", "Tadcaster", "United Kingdom")
+		self.add_beer("Brown Ale", newcastle, 'Brown Ale', 18.5, 4.7)
+
+		phillyBrewCo = self.add_brewery("Philadelphia Brewing Company", "Philadelphia", "Pennsylvania")
+		self.add_beer("Walt Wit", phillyBrewCo, 'Witbier', 20, 4.5)
+		self.add_beer("Kenzinger", phillyBrewCo, 'Pilsner', 33, 4.5)
+		self.add_beer("Schwarzinger", phillyBrewCo, 'Black Lager', 20, 5.0)
+	
+		sierraNevada = self.add_brewery("Sierra Nevada", "Chico", "California")
+		self.add_beer("Kellerweis", sierraNevada, 'Hefeweizen', 15, 4.8)
+
+
+
+	def add_foods_db(self):
 		self.add_food("Spicy")
 		self.add_food("Chili")
 		self.add_food("Burger")
@@ -79,7 +106,6 @@ class Pop():
 		self.add_food("Vegetable")
 		self.add_food("Bratwurst")
 		self.add_food("Chicken")
-		self.add_food("Spicy")
 		self.add_food("Pork")
 		self.add_food("Vegetable")
 		self.add_food("Salmon")
@@ -94,8 +120,72 @@ class Pop():
 		self.add_food("Buffalo")
 		self.add_food("Spiced")
 		self.add_food("Mango")
+		self.add_food("Sweet")
+		self.add_food("Smoked")
+		self.add_food("Peanut")
+		self.add_food("Nut")
+		self.add_food("Fish")
+		self.add_food("Curry")
+		self.add_food("Seafood")
+		self.add_food("Ceviche")
+		self.add_food("Citrus")
+		self.add_food("Herb")
+		self.add_food("Lemon")
+		self.add_food("Asian")
+		self.add_food("Tuna")
+		self.add_food("Cajun")
+		self.add_food("Jerk")
+		self.add_food("Italian")
+		self.add_food("Spaghetti")
+		self.add_food("Shellfish")
+		self.add_food("Asian")
+		self.add_food("Garlic")
+		self.add_food("Scallops")
+		self.add_food("Shrimp")
+		self.add_food("Bacon")
+		self.add_food("Suishi")
+		self.add_food("Buffalo")
+		self.add_food("Pepper")
+		self.add_food("Mexican")
+		self.add_food("Nachos")
+		self.add_food("Chorizo")
+		self.add_food("Falafel")
+		self.add_food("Grapefruit")
+		self.add_food("Samosas")
+		self.add_food("Fried")
+		self.add_food("Goose")
+		self.add_food("Hamburger")
+		self.add_food("Pizza")
+		self.add_food("Gumbo")
+		self.add_food("Calamari")
+		self.add_food("Pasta")
+		self.add_food("Risotto")
+		self.add_food("Octopus")
+		self.add_food("Pesto")
+		self.add_food("Ratatouille")
+		self.add_food("Anchiovies")
+		self.add_food("Bruschetta")
+		self.add_food("Caviar")
+		self.add_food("Chinese")
+		self.add_food("Chorizo")
+		self.add_food("Barbecue")
+		self.add_food("Halibut")
+		self.add_food("Omelet")
+		self.add_food("Macaroni")
+		self.add_food("Rabbit")
+		self.add_food("Quail")
+		self.add_food("Meatloaf")
+		self.add_food("Sausage")
+		self.add_food("Pheasant")
+		self.add_food("Monkfish")
+		self.add_food("Crab")
+		self.add_food("Halibut")
+		self.add_food("Mozzarella")
+		self.add_food("Goat")
+		self.add_food("Salami")
 
-		self.create_food2beer()
+
+
 
 	def add_brewery(self, name, city, state):
 		b = Brewery.objects.get_or_create(name=name, city=city, state=state)[0]
@@ -114,132 +204,139 @@ class Pop():
 		self.foodList.append(f)	
 
 	def create_food2beer(self):
-		self.food2beer["Spicy"] = "IPA"
-		self.food2beer["Chili"] = "IPA"
-		self.food2beer["Burger"] = "IPA"
-		self.food2beer["Carrot"] = "IPA"
+		self.food2beer["Anchiovies"] = ["Pilsner"]
 
-		self.food2beer["Spicy"] = "Imperial IPA"
-		self.food2beer["Chili"] = "Imperial IPA"
-		self.food2beer["Burger"] = "Imperial IPA"
-		self.food2beer["Carrot"] = "Imperial IPA"
+		self.food2beer["Asian"] = ["Lager"]
+		self.food2beer["Bacon"] = ["Rye IPA"]
+		self.food2beer["Barbecue"] = ["Wheat Ale"]
 
-		self.food2beer["Pork"] = "Porter"
-		self.food2beer["Grill"] = "Porter"
-		self.food2beer["Fish"] = "Porter"
-		self.food2beer["Beef"] = "Porter"
-		self.food2beer["Turkey"] = "Porter"
-		self.food2beer["Sweet"] = "Porter"
+		self.food2beer["Beef"] = ["Porter", 'Stout']
+		self.food2beer["Bratwurst"] = ["Amber Ale"]
+		self.food2beer["Brisket"] = ["Brown Ale"]
+		self.food2beer["Bruschetta"] = ["Pilsner"]
 
-		self.food2beer["Pork"] = "Stout"
-		self.food2beer["Grill"] = "Stout"
-		self.food2beer["Fish"] = "Stout"
-		self.food2beer["Beef"] = "Stout"
-		self.food2beer["Turkey"] = "Stout"
-		self.food2beer["Sweet"] = "Stout"
-		self.food2beer["Coffee"] = "Stout"
-		self.food2beer["Caramel"] = "Stout"
+		self.food2beer["Buffalo"] = ["American White Ale"]
+		self.food2beer["Burger"] = ["Alt", "Pilsner", "Amber Ale"]
+		self.food2beer["Calamari"] = ["Black Lager"]
 
-		self.food2beer["Salad"] = "Hefeweizen"
-		self.food2beer["Seafood"] = "Hefeweizen"
-		self.food2beer["Tilapia"] = "Hefeweizen"
-		self.food2beer["Shrimp"] = "Hefeweizen"
-		self.food2beer["Lobster"] = "Hefeweizen"
-		self.food2beer["Taco"] = "Hefeweizen"
-		self.food2beer["Mexican"] = "Hefeweizen"
-		self.food2beer["Fruit"] = "Hefeweizen"
-		self.food2beer["Vegetable"] = "Hefeweizen"
-		self.food2beer["Sweet"] = "Porter"
+		self.food2beer["Cajun"] = ["Lager", "Bock"]
+		self.food2beer["Caramel"] = ["Stout"]
+		self.food2beer["Carrot"] = ["Rye IPA"]
+		self.food2beer["Caviar"] = ["Pilsner"]
 
+		self.food2beer["Ceviche"] = ["Witbier"]
+		self.food2beer["Citrus"] = ["Witbier"]
+		self.food2beer["Chicken"] = ["Black Lager", "Belgian-Style Tripel"]
+		self.food2beer["Chili"] = ["IPA", "American IPA", "Double IPA"]
+		self.food2beer["Chinese"] = ["Pilsner"]
+		self.food2beer["Chorizo"] = ["Pilsner", "Pale Ale"]
 
-		self.food2beer["Bratwurst"] = "Amber Ale"
-		self.food2beer["Chicken"] = "Amber Ale"
-		self.food2beer["Burgers"] = "Amber Ale"
-		self.food2beer["Spicy"] = "Amber Ale"
-		self.food2beer["Pork"] = "Amber Ale"
-		self.food2beer["Smoked"] = "Amber Ale"
+		self.food2beer["Coffee"] = ["Stout"]
+		self.food2beer["Crab"] = ["Session IPA"]
 
+		self.food2beer["Curry"] = ["Pale Ale"]
+		self.food2beer["Falafel"] = ["Pale Ale"]
+		self.food2beer["Fish"] = ["Porter", 'Stout', 'Pilsner']
+		self.food2beer["Fried"] = ["Alt"]
 
-		self.food2beer["Pork"] = "Brown Ale"
-		self.food2beer["Salmon"] = "Brown Ale"
-		self.food2beer["Grill"] = "Brown Ale"
-		self.food2beer["Burger"] = "Brown Ale"
-		self.food2beer["Brisket"] = "Brown Ale"
-		self.food2beer["Sausage"] = "Brown Ale"
-		self.food2beer["Peanut"] = "Brown Ale"
-		self.food2beer["Nut"] = "Brown Ale"
+		self.food2beer["Fruit"] = ["Hefeweizen"]
+		self.food2beer["Garlic"] = ["Wheat Ale"]
+		self.food2beer["Goat"] = ["Belgian Wheat"]
 
+		self.food2beer["Goose"] = ["Alt"]
 
-		self.food2beer["Pork"] = "Pilsner"
-		self.food2beer["Fish"] = "Pilsner"
-		self.food2beer["Chicken"] = "Pilsner"
-		self.food2beer["Vegetable"] = "Pilsner"
-		self.food2beer["Salmon"] = "Pilsner"
+		self.food2beer["Grapefruit"] = ["Pale Ale"]
 
-		self.food2beer["Mexican"] = "Pale Ale"
-		self.food2beer["Curry"] = "Pale Ale"
-		self.food2beer["Sweet"] = "Pale Ale"
-		self.food2beer["Spiced"] = "Pale Ale"
+		self.food2beer["Grill"] = ["Porter", "Stout", "Brown Ale"]
+		self.food2beer["Gumbo"] = ["Black Lager"]
 
-		self.food2beer["Seafood"] = "Witbier"
-		self.food2beer["Ceviche"] = "Witbier"
-		self.food2beer["Citrus"] = "Witbier"
+		self.food2beer["Hamburger"] = ["Alt"]
+		self.food2beer["Halibut"] = ["Wheat Ale"]
 
-		self.food2beer["Herb"] = "Saison"
-		self.food2beer["Chicken"] = "Saison"
+		self.food2beer["Herb"] = ["Saison"]
+		self.food2beer["Italian"] = ["Golden Ale"]
+		self.food2beer["Jalapeno"] = ["Blonde Ale"]
 
-		self.food2beer["Pork"] = "English Style Bitter"
+		self.food2beer["Jerk"] = ["Steam Beer"]
+		self.food2beer["Lemon"] = ["Hefeweizen"]
 
-		self.food2beer["Burger"] = "Alt"
+		self.food2beer["Lobster"] = ["Hefeweizen"]
+		self.food2beer["Macaroni"] = ["English Style Bitter"]
 
-		self.food2beer["Lemon"] = "Lager"
-		self.food2beer["Spicy"] = "Lager"
-		self.food2beer["Asian"] = "Lager"
-		self.food2beer["Tuna"] = "Lager"
-		self.food2beer["Tomato"] = "Lager"
-		self.food2beer["Cajun"] = "Lager"
-		self.food2beer["Jerk"] = "Lager"
-		self.food2beer["Spice"] = "Lager"
+		self.food2beer["Mango"] = ["Blonde Ale"]
+		self.food2beer["Meatloaf"] = ["English Style Bitter"]
 
-		self.food2beer["Italian"] = "Golden Ale"
-		self.food2beer["Spaghetti"] = "Golden Ale"
-		self.food2beer["Shellfish"] = "Golden Ale"
+		self.food2beer["Mexican"] = ["Hefeweizen", "Pale Ale", "Marzen","Oktoberfest"]
+		self.food2beer["Monkfish"] = ["English Style Bitter"]
+		self.food2beer["Mozzarella"] = ["Belgian Wheat"]
+		self.food2beer["Nachos"] = ["Pale Ale"]
 
-		self.food2beer["Asian"] = "Blonde Ale"
-		self.food2beer["Jalapeno"] = "Blonde Ale"
-		self.food2beer["Mango"] = "Blonde Ale"
-		self.food2beer["Salsa"] = "Blonde Ale"
-		self.food2beer["Chili"] = "Blonde Ale"
+		self.food2beer["Nut"] = ["Brown Ale"]
+		self.food2beer["Octopus"] = ["Golden Ale"]
+		self.food2beer["Omelet"] = ["Wheat Ale"]
+		self.food2beer["Quail"] = ["English Style Bitter"]
 
-		self.food2beer["Garlic"] = "Wheat Ale"
-		self.food2beer["Scallops"] = "Wheat Ale"
-		self.food2beer["Shrimp"] = "Wheat Ale"
+		self.food2beer["Pasta"] = ["Golden Ale"]
 
-		self.food2beer["Bacon"] = "Rye IPA"
+		self.food2beer["Peanut"] = ["Brown Ale"]
+		self.food2beer["Pepper"] = ["Belgian-Style Tripel", "Belgian Wheat"]
+		self.food2beer["Pesto"] = ["Golden Ale"]
+		self.food2beer["Pheasant"] = ["English Style Bitter"]
 
-		self.food2beer["Suishi"] = "American White Ale"
-		self.food2beer["Buffalo"] = "American White Ale"
+		self.food2beer["Pizza"] = ["Black Lager"]
 
+		self.food2beer["Pork"] = ["Porter", "Stout", "English Style Bitter"]
+		self.food2beer["Rabbit"] = ["English Style Bitter"]
 
-		self.food2beer["Pepper"] = "Belgian-Style Tripel"
+		self.food2beer["Ratatouille"] = ["Golden Ale"]
 
-		self.food2beer["Pepper"] = "Belgian Wheat"
+		self.food2beer["Risotto"] = ["Golden Ale"]
+		self.food2beer["Sausage"] = ["English Style Bitter"]
 
-		self.food2beer["Mexican"] = "Marzen"
+		self.food2beer["Salad"] = ["Hefeweizen"]
+		self.food2beer["Salami"] = ["Belgian-Style Tripel"]
 
-		self.food2beer["Mexican"] = "Oktoberfest"
+		self.food2beer["Salmon"] = ["Brown Ale"]
+		self.food2beer["Salsa"] = ["Blonde Ale"]
 
-		self.food2beer["Cajun"] = "Bock"
-		self.food2beer["Jerk"] = "Bock"
+		self.food2beer["Sausage"] = ["Brown Ale"]
+		self.food2beer["Samosas"] = ["Pale Ale"]
+		self.food2beer["Scallops"] = ["Wheat Ale"]
 
-		#print self.food2beer
+		self.food2beer["Seafood"] = ["Hefeweizen", "Witbier"]
+		self.food2beer["Shellfish"] = ["Golden Ale"]
+
+		self.food2beer["Shrimp"] = ["Hefeweizen", "Wheat Ale"]
+		self.food2beer["Smoked"] = ["Amber Ale"]
+		self.food2beer["Spaghetti"] = ["Golden Ale"]
+
+		self.food2beer["Spicy"] = ["IPA", "American IPA", "Double IPA"]
+		self.food2beer["Spiced"] = ["Pale Ale"]
+		self.food2beer["Suishi"] = ["American White Ale"]
+		self.food2beer["Sweet"] = ["Porter", 'Stout']
+		self.food2beer["Tilapia"] = ["Hefeweizen"]
+		self.food2beer["Taco"] = ["Hefeweizen"]
+		self.food2beer["Tomato"] = ["Lager"]
+
+		self.food2beer["Tuna"] = ["Lager"]
+		self.food2beer["Turkey"] = ["Porter", 'Stout']
+		self.food2beer["Vegetable"] = ["Hefeweizen"]
+
+		print Food.objects.all()
+
+		print "\n\n\n"
 		for food in Food.objects.all():
-			#print  food
+			print food
+			beerTypeArr = self.food2beer[str(food)]
+			print beerTypeArr
 			for beer in Beer.objects.all():
 				#print beer.beerType
 				#print self.food2beer[str(food)]
-				if beer.beerType  == self.food2beer[str(food)]:
+				if beer.beerType  in beerTypeArr:
 					food.beer.add(beer)
+				else:
+					pass
+					#print "\t" + str(food) + " - " + str(beer)
 	def __init__(self):
 		# Delete all entries in database
 		Beer.objects.all().delete()
@@ -254,11 +351,8 @@ class Pop():
 		print "Starting population script for Food2Beer..."
 
 		self.populate()
+		#Food.objects.filter(name="Spicy")[0].beer.all()[1].brewery
 
-		print ""
-		allPairs = Food.objects.all()
-		print allPairs[0].beer
-		print ""
 		print "Finished populating Food2Beer"
 
 Pop()

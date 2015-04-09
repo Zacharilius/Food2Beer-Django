@@ -27,5 +27,7 @@ urlpatterns = patterns('',
 		paginate_by=5,
 		model=Brewery,
 		)),
+
+	# Food2Beer 
 	url(r'^$', views.food2beer, name='food2beer'),
 )
