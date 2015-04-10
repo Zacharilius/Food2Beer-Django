@@ -1,0 +1,14 @@
+{% extends "includes/base.html" %}
+	{% block content %}
+		<h1>Food2Beer</h1>
+		<p>Enter a food, flavor, or type of food and Food2Beer
+			will output a beer recommendation.</p>
+		<form action="/food2beer/" method="POST">
+    		{% csrf_token %}
+    		{{ form }}
+    		<input type="submit" value="Get Beer"/>
+		</form>
+			{% for combo in foodBeerCombo %}
+				<p>{{ combo }} </p>
+			{% endfor %}
+	{% endblock %}

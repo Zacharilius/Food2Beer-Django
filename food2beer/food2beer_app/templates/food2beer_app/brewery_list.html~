@@ -1,5 +1,5 @@
 {% extends "includes/base.html" %}
-	{% block content %}
+	{% block content %}z
 		{% for brewery in object_list %}
 			<h2>
 				<a href = "/food2beer{{ brewery.get_absolute_url }}">{{ brewery.name }}
